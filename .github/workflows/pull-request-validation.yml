@@ -29,6 +29,7 @@ jobs:
         with:
           files: |
             cosmos/**
+            evm/**
 
       - name: Validate changed files
         run: |
@@ -37,3 +38,5 @@ jobs:
               yarn ts-node src/index.ts $file
             fi
           done
+        env:
+          PRICE_URL: ${{ secrets.PRICE_URL }}
